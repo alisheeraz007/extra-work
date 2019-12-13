@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body div{
+    min-width: 10%;
+}
+input{
+    min-width: 10%;
+}
+.mainDiv{
+    background-color: white;
+}
+.header1{
+    position: absolute;
+    top: 7%;
+    left: 20%;
+    transform: translate(-50%,-50%);
+    font-size: 22px;
+}
+.header2{
+    position: absolute;
+    top: 4%;
+    left: 60%;;
+}
+.header2 div{
+    display: inline-block;
+}
+.header3{
+    position: absolute;
+    top: 10%;
+    left: 73%;;
+}
+.bodyDiv1{
+    display: inline-block;
+    position: absolute;
+    top: 20%;
+    left: 14%;
+    font-size: 22px;
+    font-weight: bold;
+    width: 35%;
+}
+.bodyDiv2{
+    display: inline-block;
+    position: absolute;
+    top: 19%;
+    left: 60%;
+}
+.bodyDiv2 h1{
+    font-size: 40px;
+}
+.bodyDiv2 p1{
+    font-size: 19px;
+}
+.smallInputs{
+    margin-left: 10px; 
+}
+.input{
+    width: 98%;
+}
+.bodyDiv2 input{
+    height: 30px;
+     font-size: 15px;
+     border-radius: 7px;
+     border: 1px solid black;
+     padding: 5px;
+}
+.bodyDiv2 input:hover{
+    border: 1px solid red;
+}

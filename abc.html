@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #p1{
+            border: 1px solid black;
+            font-size: 25px;
+        }
+        h2{
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        
+        // function abc(){
+            
+        //     var elem = document.getElementById("h2");
+        //     // var pad = document.getComputedStyle("p1");
+        //     var theCSSprop = window.getComputedStyle(elem, null).getPropertyValue("color");
+        //     console.log(theCSSprop);
+        // }
+    
+       
+        function addNode(){
+
+        var parentdiv = document.getElementById("parent");
+        var nodeToAdd = document.createElement("input");
+        nodeToAdd.setAttribute("type","button");
+        nodeToAdd.setAttribute("autofocus", true)
+        nodeToAdd.addEventListener('keypress', function(){
+            alert("hello")
+        })
+        // var textNode = document.createTextNode("hello");
+        // console.log(parentdiv)
+        // console.log(nodeToAdd)
+        // console.log(textNode)
+        // nodeToAdd.appendChild(textNode);
+        parentdiv.appendChild(nodeToAdd);
+        }
+    </script>
+</head>
+<body>
+    <div id="parent"  >
+    <h2 id="h2"  onClick="addNode();">abcd</h2>
+        <!-- <p id="p1" onClick="abc();">hsaudhuashdnuahsiasud sajdasi sdasdsa sdasdasd</p> -->
+
+
+    </div>
+
+</body>
+</html>

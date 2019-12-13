@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            text-align: center;
+        }
+
+        #img1 {
+            width: 70%;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: inline;
+        }
+
+        .but {
+            padding: 10px;
+            width: 7%;
+        }
+
+        .but:hover {
+            background-color: lightslategray;
+        }
+
+        .but1 {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            width: 30px;
+            border: 0;
+            background-color: white;
+        }
+
+        .but1:hover {
+            background-color: lightslategray !important;
+        }
+
+        .but1:focus {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img id="img1" src="images/48413098_1955285824588637_3401094300015001600_n.jpg">
+        <img id="img1" class="hidden" src="images/49025919_1955285397922013_4214648714620305408_n.jpg">
+        <img id="img1" class="hidden" src="images/amplifi-contact-us-2.jpg">
+        <div>
+            <button onclick="disMinus()" class="but">
+                Previous
+            </button>
+            <button onclick="disPlus();" class="but">
+                Next
+            </button>
+        </div>
+        <!-- <div>
+            <button class="but1" onclick="">1</button>
+            <button class="but1">2</button>
+            <button class="but1">3</button>
+        </div> -->
+    </div>
+    <script>
+        let intial = 0;
+
+        // function func() {
+        //     var img = document.querySelectorAll("#img1")
+        //     img[intial].className = "hidden"
+        //     intial++
+        //     if (intial === img.length) {
+        //         // console.log(intial)
+        //         intial = 0
+        //     }
+        //     console.log(`intial After plus ${intial}`)
+        //     img[intial].className = "show"
+
+
+        // }
+
+        // function funcMinus() {
+        //     var img = document.querySelectorAll("#img1")
+        //     img[intial].className = "hidden"
+        //     intial--
+        //     if (intial < 0) {
+        //         // console.log(intial)
+        //         intial = 2
+        //     }
+        //     console.log(`intial After Miuns ${intial}`)
+        //     img[intial].className = "show"
+
+
+        // }
+
+        function disPlus() {
+            var img = document.querySelectorAll("#img1");
+            intial++
+            if (intial === img.length) {
+                intial = 0
+            }
+            for (var j = 0; j < img.length; j++) {
+                img[j].className = "hidden";
+
+                for (var i = intial; i <= intial; i++) {
+                    img[i].className = "show";
+                }
+            }
+        }
+
+        function disMinus() {
+            var img = document.querySelectorAll("#img1");
+            intial--
+
+            if (intial === -1) {
+                intial = 2
+            }
+
+            for (var j = 0; j < img.length; j++) {
+                img[j].className = "hidden";
+
+                for (var i = intial; i <= intial; i++) {
+                    img[i].className = "show";
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

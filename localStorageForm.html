@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input id="name" type="text" placeholder="name"><br>
+        <input id="clas" type="text" placeholder="class">
+        <button onclick="saveTolocalStorage();" id="but1" >Add</button>
+        <button class="hidden" id="but2" onclick="update(editIndex);" >update</button>
+    </div>
+    <table id="table">        
+    </table>
+    <script>
+        var nameArray = [];
+        var clasArray = [];
+        var editIndex = 0;
+        function saveTolocalStorage(){
+            nameArray.push(document.getElementById("name").value);
+            clasArray.push(document.getElementById("clas").value);
+            localStorage.setItem("names", nameArray);
+            localStorage.setItem("class", clasArray);
+            table();
+        }
+        function table(){
+            document.getElementById("table").innerHTML = "";
+
+            var newNameArray = localStorage.getItem("names");
+            var newClasArray = localStorage.getItem("class");
+            
+            if(newNameArray && newClasArray){
+                newNameArray = newNameArray.split(",");
+                newClasArray = newClasArray.split(",");
+                nameArray = newNameArray;
+                clasArray = newClasArray;
+                document.getElementById("table").innerHTML += "<tr><th>index</th><th>name</th><th>class</th></tr>"
+            }
+            else{
+                newNameArray = [];
+            }
+            for(var i = 0; i < newNameArray.length; i++){
+                document.getElementById("table").innerHTML += "<tr><td>"+i+"</td><td>"+newNameArray[i]+"</td><td>"+newClasArray[i]+"</td>"+
+                "<td><button onClick='edit("+i+")' >Edit</button></td><td><button onClick='del("+i+")' >Delete</button></td></tr>"
+            }
+        }
+        function del(index){
+            nameArray.splice(index, 1);
+            clasArray.splice(index, 1);
+            localStorage.setItem("names",nameArray);
+            localStorage.setItem("class",clasArray);
+            table();
+        }
+        function edit(index){
+            document.getElementById("name").value = nameArray[index];
+            document.getElementById("clas").value = clasArray[index];
+            document.getElementById("but2").className = "";
+            document.getElementById("but1").className = "hidden";
+            editIndex = index;
+            table();
+        }
+        function update(editIndex){
+            nameArray.splice(editIndex,1,document.getElementById("name").value);
+            clasArray.splice(editIndex,1,document.getElementById("clas").value);
+            document.getElementById("but2").className = "hidden";
+            document.getElementById("but1").className = "";
+            localStorage.setItem("names", nameArray);
+            localStorage.setItem("class", clasArray);
+            table();
+        }
+        table();
+    </script>
+</body>
+</html>

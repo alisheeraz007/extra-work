@@ -1,0 +1,30 @@
+nav {
+    background-color: rgb(3, 3, 34) !important;
+}
+.navbar-brand{
+    font-size: 30px !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+    color:  rgb(211, 211, 211) !important;
+}
+.navbar-brand:hover{
+    color: rgb(151, 156, 156) !important;
+}
+button{
+    color: rgb(211, 211, 211) !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    font-size: 20px !important;
+    min-font-size: 5px; 
+    min-width: 10px !important;
+}
+ul button:hover{
+    color: rgb(151, 156, 156) !important;
+    transition: 0.2s;
+    border: 1px solid  rgb(151, 156, 156) !important;
+}
+.navbar-right{
+    color:  rgb(211, 211, 211) !important;
+}
+ul li {
+    padding-left: 30px !important;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .none{   
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input id="name" type="text" placeholder="name"><br>
+        <input id="clas" type="text" placeholder="class"><br>
+        <button id="but1" onclick='add();'>add</button>
+        <button id="but2" class="none" onclick="update(editIndex);" >Update</button>
+    </div>
+    <div id="table">
+
+    </div>
+</body>
+    <script>
+        var names = ["a", "ab", "abc", "abcd", "abcde", "abcdef", "abcdefg"];
+        // console.log(names)
+        var clas = [9,5,10,8,6,11,7];
+        var editIndex = 0;
+        function update(editIndex){
+            // console.log(editIndex)
+            names.splice(editIndex,1,document.getElementById("name").value)
+            clas.splice(editIndex,1,document.getElementById("clas").value)
+            document.getElementById("but2").className = "none";
+            document.getElementById("but1").className = "";
+            document.getElementById("name").value = "";
+            document.getElementById("clas").value = "";
+            loop();
+        }
+        function edit(index){
+            var editName = names[index];
+            var editClas = clas[index];
+            document.getElementById("name").value = editName;
+            document.getElementById("clas").value = editClas;
+            document.getElementById("but1").className ="none";
+            document.getElementById("but2").className = "";
+            document.getElementById("ab").innerHTML=index;
+            editIndex = index;
+            // console.log(editIndex);
+            // console.log(editName + editClas)
+        }
+
+        function add(){
+            var addName = document.getElementById("name").value;
+            var addClas = document.getElementById("clas").value;
+            if(addClas.charCodeAt() >= 48 && addClas.charCodeAt() <= 57){
+            names.push(addName);
+            clas.push(addClas);
+            }
+            else{
+                alert("to add class use number")
+            }
+            document.getElementById("name").value = "";
+            document.getElementById("clas").value = "";
+
+            // document.body.innerHTML = "";
+            loop();
+        }
+
+        function del(index){
+            names.splice(index,1);
+            clas.splice(index,1);
+
+            // document.body.innerHTML = "";
+            loop();
+        }
+
+        function loop(){
+            var table = ""
+            table += "<table><tr><th>Index</th><th>Name</th><th>Class</th></tr>"
+            for(var i = 0; i < names.length; i++){
+                table += "<tr><td>"+i+"</td><td>" + names[i] + "</td><td>"+ clas[i] +"</td><td></td><td><button onClick='edit("+i+");'>edit</button></td>"+
+                "<td><button onClick='del(" + i + ")'>delete</button></td></tr>";
+            }
+            table += "</table>";
+            // document.write(table);
+            console.log(table)
+            document.getElementById("table").innerHTML= table;
+            // console.log(d)
+
+        }
+        loop()
+    </script>
+</html>
